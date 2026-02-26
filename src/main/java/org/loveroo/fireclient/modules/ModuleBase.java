@@ -49,7 +49,7 @@ public abstract class ModuleBase {
             }
         }
 
-        return !drawingOverwritten && getData().isVisible();
+        return !drawingOverwritten && getData().isVisible() && getData().isEnabled();
     }
 
     public void draw(DrawContext context, RenderTickCounter ticks) { }

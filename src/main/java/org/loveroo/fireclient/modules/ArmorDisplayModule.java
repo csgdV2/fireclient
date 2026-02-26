@@ -48,6 +48,7 @@ public class ArmorDisplayModule extends ModuleBase {
         getData().setSnapScale(1.0/3.0);
 
         getData().setVisible(true);
+        getData().setEnabled(true);
 
         var toggleBind = new Keybind("toggle_armor_display",
                 Text.translatable("fireclient.keybind.generic.toggle.name"),

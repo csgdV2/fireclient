@@ -171,6 +171,10 @@ public class ModuleData {
     public void setVisible(boolean visible) {
         this.visible = visible;
 
+        if(guiElement) {
+            this.enabled = visible;
+        }
+
         if(visibleChanged != null) {
             visibleChanged.run();
         }
@@ -190,6 +194,10 @@ public class ModuleData {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+
+        if(guiElement) {
+            this.visible = enabled;
+        }
 
         if(enableChanged != null) {
             enableChanged.run();

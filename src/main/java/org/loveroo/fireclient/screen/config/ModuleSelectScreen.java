@@ -8,15 +8,12 @@ import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
 
-import org.loveroo.fireclient.FireClient;
 import org.loveroo.fireclient.client.FireClientside;
-import org.loveroo.fireclient.modules.ModuleBase;
 import org.loveroo.fireclient.screen.base.ConfigScreenBase;
 import org.loveroo.fireclient.screen.base.ScrollableWidget;
-import org.loveroo.fireclient.screen.widgets.FavoriteButtonWidget.FavoriteButtonBuilder;
+import org.loveroo.fireclient.screen.widgets.ModuleCardWidget;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,10 +26,15 @@ public class ModuleSelectScreen extends ConfigScreenBase {
 
     private String search = "";
 
-    private final HashMap<String, ButtonWidget> moduleButtons = new HashMap<>();
+    private final HashMap<String, ModuleCardWidget> moduleCards = new HashMap<>();
 
-    private final int moduleSelectWidth = 400;
-    private final int moduleSelectHeight = 140;
+    private static final int CARD_WIDTH = 120;
+    private static final int CARD_HEIGHT = 100;
+    private static final int CARD_SPACING = 10;
+    private static final int COLUMNS = 3;
+
+    private final int moduleSelectWidth = (CARD_WIDTH + CARD_SPACING) * COLUMNS + 30;
+    private final int moduleSelectHeight = 220;
 
     private static double scroll = 0.0;
 
@@ -43,15 +45,8 @@ public class ModuleSelectScreen extends ConfigScreenBase {
     @Override
     public void init() {
         for(var module : FireClientside.getModules()) {
-            var button = new FavoriteButtonBuilder(module.getData().getShownName())
-                .onPress(module::moduleConfigPressed)
-                .getValue(module.getData()::isFavorited)
-                .setValue(module.getData()::setFavorited)
-                .tooltip(Tooltip.of(module.getData().getDescription()))
-                .dimensions(0, 0, 120, 20)
-                .build();
-            
-            moduleButtons.put(module.getData().getId(), button);
+            var card = new ModuleCardWidget(module, 0, 0, CARD_WIDTH, CARD_HEIGHT);
+            moduleCards.put(module.getData().getId(), card);
         }
 
         backButton = ButtonWidget.builder(Text.translatable("fireclient.screen.settings.back.name"), this::backButtonPressed)
@@ -61,7 +56,7 @@ public class ModuleSelectScreen extends ConfigScreenBase {
             
         addDrawableChild(backButton);
             
-        modulesWidget = new ScrollableWidget(this, moduleSelectWidth, moduleSelectHeight, 0, 30, List.of());
+        modulesWidget = new ScrollableWidget(this, moduleSelectWidth, moduleSelectHeight, 0, CARD_HEIGHT + CARD_SPACING, List.of());
         modulesWidget.setPosition(width/2 - (moduleSelectWidth/2), height/2 - (moduleSelectHeight/2));
         modulesWidget.setScrollY(scroll);
         
@@ -92,7 +87,6 @@ public class ModuleSelectScreen extends ConfigScreenBase {
             
             return false;
         })
-        // .map((module) -> module.getData().getId())
         .collect(Collectors.toList()));
         
         sortedModules.sort((module1, module2) -> {
@@ -113,8 +107,8 @@ public class ModuleSelectScreen extends ConfigScreenBase {
         });
 
         var modules = sortedModules.stream().map((module) -> module.getData().getId()).toList();
-        var buttons = new ArrayList<ButtonWidget>();
-        
+        var cards = new ArrayList<ModuleCardWidget>();
+
         var skips = 0;
         for(var i = 0; i < modules.size(); i++) {
             var module = FireClientside.getModule(modules.get(i));
@@ -125,27 +119,31 @@ public class ModuleSelectScreen extends ConfigScreenBase {
             }
 
             var index = i - skips;
+            var col = index % COLUMNS;
 
-            var x = ((index % 3) - 1) * 130;
-            var button = moduleButtons.get(module.getData().getId());
-            button.setPosition(width/2 - 60 + x, 0);
+            int totalGridWidth = COLUMNS * CARD_WIDTH + (COLUMNS - 1) * CARD_SPACING;
+            int startX = width / 2 - totalGridWidth / 2;
+            int cardX = startX + col * (CARD_WIDTH + CARD_SPACING);
 
-            buttons.add(button);
+            var card = moduleCards.get(module.getData().getId());
+            card.setPosition(cardX, 0);
+
+            cards.add(card);
         }
 
         var entries = new ArrayList<ScrollableWidget.ElementEntry>();
         
-        var size = buttons.size();
-        var lineCount = (int)Math.ceil(size/3.0);
+        var size = cards.size();
+        var lineCount = (int)Math.ceil(size / (double) COLUMNS);
 
         for(int i = 0; i < lineCount; i++) {
             var entryWidgets = new ArrayList<ClickableWidget>();
 
-            var moduleEntryIndex = (i*3);
-            var moduleEntryCount = Math.min(3, size - moduleEntryIndex);
+            var cardEntryIndex = (i * COLUMNS);
+            var cardEntryCount = Math.min(COLUMNS, size - cardEntryIndex);
 
-            for(int k = 0; k < moduleEntryCount; k++) {
-                entryWidgets.add(buttons.get(moduleEntryIndex + k));
+            for(int k = 0; k < cardEntryCount; k++) {
+                entryWidgets.add(cards.get(cardEntryIndex + k));
             }
 
             var entry = new ScrollableWidget.ElementEntry(entryWidgets);
@@ -153,7 +151,7 @@ public class ModuleSelectScreen extends ConfigScreenBase {
         }
 
         modulesWidget.setEntries(entries);
-        if(modules.size() == moduleButtons.size()) {
+        if(modules.size() == moduleCards.size()) {
             modulesWidget.setScrollY(scroll);
         }
         else {
