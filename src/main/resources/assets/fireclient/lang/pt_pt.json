@@ -381,7 +381,8 @@
 
   "fireclient.screen.module_select.title": "Selecionar Módulos",
   "fireclient.screen.module_select.header": "Configuração dos Módulos",
-  "fireclient.screen.module_select.tutorial": "Clique com o botão direito para dar favorito",
+
+
 
   "fireclient.module.toggle_toggle_sneak.name": "Alternar Alternar Agachar",
   "fireclient.module.toggle_toggle_sneak.description": "Permite alternar a opção de alternância furtiva ao premir a tecla de atalho",

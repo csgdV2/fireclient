@@ -381,7 +381,8 @@
 
   "fireclient.screen.module_select.title": "Επιλογή Μονάδας",
   "fireclient.screen.module_select.header": "Διαμόρφωση Μονάδων",
-  "fireclient.screen.module_select.tutorial": "Κάντε δεξί κλικ για να προσθέσετε στα αγαπημένα",
+
+
 
   "fireclient.module.toggle_toggle_sneak.name": "Εναλλαγή Εναλλαγή-Σκυψίματος",
   "fireclient.module.toggle_toggle_sneak.description": "Σας επιτρέπει να εναλλάσσετε την επιλογή εναλλαγής σκυψίματος όταν πατάτε το πλήκτρο της επιλογής σας",

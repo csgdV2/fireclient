@@ -188,7 +188,6 @@ public class ModuleSelectScreen extends ConfigScreenBase {
         var text = MinecraftClient.getInstance().textRenderer;
 
         context.drawCenteredTextWithShadow(text, Text.translatable("fireclient.screen.module_select.header"), width/2, height/2 - (moduleSelectHeight/2 + 30), 0xFFFFFFFF);
-        renderTutorialText(context, Text.translatable("fireclient.screen.module_select.tutorial"));
     }
 
     public static void resetScroll() {

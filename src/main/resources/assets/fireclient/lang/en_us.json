@@ -381,7 +381,8 @@
   
   "fireclient.screen.module_select.title": "Module Select",
   "fireclient.screen.module_select.header": "Modules Config",
-  "fireclient.screen.module_select.tutorial": "Right click to favorite",
+
+
 
   "fireclient.module.toggle_toggle_sneak.name": "Toggle ToggleSneak",
   "fireclient.module.toggle_toggle_sneak.description": "Allows you to toggle the toggle sneak option when pressing the keybind",
