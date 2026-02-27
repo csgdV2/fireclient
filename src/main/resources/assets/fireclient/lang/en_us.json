@@ -58,6 +58,13 @@
   "fireclient.module.command_keys.name": "Command Keys",
   "fireclient.module.command_keys.description": "Runs commands when you press their respective keybind",
 
+  "fireclient.module.cps_display.name": "CPS Display",
+  "fireclient.module.cps_display.description": "Shows your clicks per second",
+  "fireclient.module.cps_display.show_cps_text.name": "Show CPS Text",
+  "fireclient.module.cps_display.show_cps_text.tooltip": "Show or hide the \"CPS\" label",
+  "fireclient.module.cps_display.show_brackets.name": "Show Brackets",
+  "fireclient.module.cps_display.show_brackets.tooltip": "Show or hide brackets around the CPS display",
+
   "fireclient.module.command_keys.add_command.name": "Add new command",
   "fireclient.module.command_keys.add_command.tooltip": "Add a new command to the list",
   "fireclient.module.command_keys.remove_command.name": "-",

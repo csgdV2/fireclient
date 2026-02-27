@@ -8,6 +8,7 @@ import net.minecraft.client.input.MouseInput;
 import org.loveroo.fireclient.FireClient;
 import org.loveroo.fireclient.client.FireClientside;
 import org.loveroo.fireclient.keybind.Key.KeyType;
+import org.loveroo.fireclient.modules.CPSDisplayModule;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,6 +28,14 @@ public abstract class MouseMixin {
         if (window == client.getWindow().getHandle()) {
             var key = GLFW.GLFW_MOUSE_BUTTON_1 + input.button();
             var status = FireClientside.getKeybindManager().onKey(KeyType.MOUSE, key, -1, action, input.modifiers());
+
+            if (action == GLFW.GLFW_PRESS) {
+                if (input.button() == 0) {
+                    CPSDisplayModule.registerClick(true);
+                } else if (input.button() == 1) {
+                    CPSDisplayModule.registerClick(false);
+                }
+            }
 
             if(!status) {
                 info.cancel();

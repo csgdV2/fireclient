@@ -26,6 +26,7 @@ import org.loveroo.fireclient.modules.ArmorDisplayModule;
 import org.loveroo.fireclient.modules.AutoMessageModule;
 import org.loveroo.fireclient.modules.BigItemsModule;
 import org.loveroo.fireclient.modules.BlockOutlineModule;
+import org.loveroo.fireclient.modules.CPSDisplayModule;
 import org.loveroo.fireclient.modules.CommandKeysModule;
 import org.loveroo.fireclient.modules.CoordinatesModule;
 import org.loveroo.fireclient.modules.CoordsChatModule;
@@ -147,6 +148,7 @@ public class FireClientside implements ClientModInitializer {
         registerModule(new ReachDisplayModule());
         registerModule(new ZoomModule());
         registerModule(new CommandKeysModule());
+        registerModule(new CPSDisplayModule());
     }
 
     public static void registerModule(ModuleBase module) {
