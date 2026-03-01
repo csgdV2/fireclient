@@ -56,6 +56,7 @@ import org.loveroo.fireclient.modules.SubtitlesModule;
 import org.loveroo.fireclient.modules.TPSModule;
 import org.loveroo.fireclient.modules.ToggleSneakModule;
 import org.loveroo.fireclient.modules.ToggleSprintModule;
+import org.loveroo.fireclient.modules.ToggleToggleSneakModule;
 import org.loveroo.fireclient.modules.ZoomModule;
 import org.loveroo.fireclient.screen.config.MainConfigScreen;
 import org.loveroo.fireclient.settings.PlayerSortPriority;
@@ -151,6 +152,7 @@ public class FireClientside implements ClientModInitializer {
         registerModule(new ZoomModule());
         registerModule(new CommandKeysModule());
         registerModule(new CPSDisplayModule());
+        registerModule(new ToggleToggleSneakModule());
     }
 
     public static void registerModule(ModuleBase module) {

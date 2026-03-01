@@ -387,6 +387,9 @@
   "fireclient.module.toggle_toggle_sneak.name": "",
   "fireclient.module.toggle_toggle_sneak.description": "",
 
+  "fireclient.module.old_toggle_sneak.name": "Alternar Alternar Agachar",
+  "fireclient.module.old_toggle_sneak.description": "Permite alternar a opção de alternância furtiva ao premir a tecla de atalho",
+
   "fireclient.module.toggle_toggle_sprint.name": "",
   "fireclient.module.toggle_toggle_sprint.description": "",
 

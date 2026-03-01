@@ -398,6 +398,9 @@
   "fireclient.module.toggle_toggle_sneak.tap_threshold.name": "Threshold: %1$s",
   "fireclient.module.toggle_toggle_sneak.tap_threshold.tooltip": "Maximum key press duration to count as a tap for toggling (100-500ms)",
 
+  "fireclient.module.old_toggle_sneak.name": "Old Toggle Sneak",
+  "fireclient.module.old_toggle_sneak.description": "Allows you to toggle the toggle sneak option when pressing the keybind",
+
   "fireclient.module.toggle_toggle_sprint.name": "Toggle Sprint",
   "fireclient.module.toggle_toggle_sprint.description": "Tap sprint to toggle persistent sprinting, hold to sprint normally. Shows an on-screen indicator when active.",
   "fireclient.module.toggle_toggle_sprint.show_indicator_text.name": "Show Text",
