@@ -391,8 +391,19 @@
 
 
 
-  "fireclient.module.toggle_toggle_sneak.name": "Toggle ToggleSneak",
-  "fireclient.module.toggle_toggle_sneak.description": "Allows you to toggle the toggle sneak option when pressing the keybind",
+  "fireclient.module.toggle_toggle_sneak.name": "Toggle Sneak",
+  "fireclient.module.toggle_toggle_sneak.description": "Tap sneak to toggle persistent sneaking, hold to sneak normally. Shows an on-screen indicator when active.",
+  "fireclient.module.toggle_toggle_sneak.show_indicator_text.name": "Show Text",
+  "fireclient.module.toggle_toggle_sneak.show_indicator_text.tooltip": "Show the sneaking indicator",
+  "fireclient.module.toggle_toggle_sneak.tap_threshold.name": "Threshold: %1$s",
+  "fireclient.module.toggle_toggle_sneak.tap_threshold.tooltip": "Maximum key press duration to count as a tap for toggling (100-500ms)",
+
+  "fireclient.module.toggle_toggle_sprint.name": "Toggle Sprint",
+  "fireclient.module.toggle_toggle_sprint.description": "Tap sprint to toggle persistent sprinting, hold to sprint normally. Shows an on-screen indicator when active.",
+  "fireclient.module.toggle_toggle_sprint.show_indicator_text.name": "Show Text",
+  "fireclient.module.toggle_toggle_sprint.show_indicator_text.tooltip": "Show the sprinting indicator",
+  "fireclient.module.toggle_toggle_sprint.tap_threshold.name": "Threshold: %1$s",
+  "fireclient.module.toggle_toggle_sprint.tap_threshold.tooltip": "Maximum key press duration to count as a tap for toggling (100-500ms)",
 
   "fireclient.settings.fix_trident_riptide.name": "Fix Riptide Shields",
   "fireclient.settings.fix_trident_riptide.description": "Fixes shields obstructing the view when riptiding with a trident",

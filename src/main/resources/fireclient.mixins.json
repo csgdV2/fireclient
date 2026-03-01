@@ -68,6 +68,8 @@
     "modules.signs.DisableSignRendering",
     "modules.subtitles.SubtitlesMixin",
     "modules.tps.UpdateTpsMixin",
+    "modules.togglesneak.PreventSneakReleaseMixin",
+    "modules.togglesprint.PreventSprintReleaseMixin",
     "modules.zoom.ZoomInMixin",
     "modules.zoom.ZoomLevelMixin",
     "settings.AddCachedEntityMixin",

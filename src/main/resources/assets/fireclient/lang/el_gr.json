@@ -384,8 +384,11 @@
 
 
 
-  "fireclient.module.toggle_toggle_sneak.name": "Εναλλαγή Εναλλαγή-Σκυψίματος",
-  "fireclient.module.toggle_toggle_sneak.description": "Σας επιτρέπει να εναλλάσσετε την επιλογή εναλλαγής σκυψίματος όταν πατάτε το πλήκτρο της επιλογής σας",
+  "fireclient.module.toggle_toggle_sneak.name": "",
+  "fireclient.module.toggle_toggle_sneak.description": "",
+
+  "fireclient.module.toggle_toggle_sprint.name": "",
+  "fireclient.module.toggle_toggle_sprint.description": "",
 
   "fireclient.settings.fix_trident_riptide.name": "Επιδιόρθωση Ασπίδας με Παλίρροια",
   "fireclient.settings.fix_trident_riptide.description": "Διορθώνει το εμπόδιο ορατότητας κατά την χρήση ασπίδας και τρίαινας με παλίρροια",
